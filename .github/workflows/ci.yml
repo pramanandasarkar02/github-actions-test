@@ -1,4 +1,4 @@
-name: NodeJS with pnpm
+name: NodeJS with npm
 
 on:
   push:
@@ -22,17 +22,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: pnpm
-
-      # REQUIRED for pnpm to exist on PATH
-      - name: Enable Corepack (pnpm)
-        shell: bash
-        run: |
-          corepack enable
-          corepack prepare pnpm@9 --activate
+          cache: npm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm i
 
       - name: Build
-        run: pnpm run build
+        run: npm run build
