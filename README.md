@@ -1,1 +1,4 @@
-# github-actions-test
+# simmple static app
+
+simple app with pnpm 
+
